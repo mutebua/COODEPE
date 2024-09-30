@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire un don</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+/* Corps de la page */
+body {
+    font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            
+}
+
+/* Barre de contact en haut */
+.top-bar {
+    background-color: #2f3191;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            padding-left: 20px;
+            padding-right: 20px;
+}
+
+.top-bar .contact-info {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar .contact-info i {
+    margin-right: 8px;
+}
+
+.top-bar .social-icons a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.top-bar .social-icons a:hover {
+    color: #f39c12;
+}
+
+/* Menu avec logo */
+header {
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 15px 20px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover, .menu a.active {
+    color: #f39c12;
+}
+
+.menu a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background-color: #f39c12;
+    transition: width 0.3s ease;
+    margin-top: 5px;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* Sous-menu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f4f4f4;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    color: #333;
+    background-color: #f4f4f4;
+    white-space: nowrap;
+}
+
+.submenu li a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
+    .submenu {
+        width: 100%;
+    }
+}
+
+
+
+/* Styles de base et du menu (comme dans le précédent exemple) */
+
+/* Style pour le contenu dynamique */
+.contenu-section {
+    padding: 20px;
+    margin-top: 100px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contenu-section img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+
+/* Styles du bas de page */
+footer {
+            background-color: #091259;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        footer div {
+            flex: 1;
+            margin: 20px;
+            min-width: 250px;
+        }
+        footer h3 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        footer p, footer li {
+            color: #b2b2b2;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        .newsletter button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            background-color: #f39c12;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de contact -->
+    <div class="top-bar">
+        <div class="contact-info">
+            <i class="fas fa-phone-alt"></i> Contactez-nous au : +243847 272 230, +243812 780 214
+            <i class="fas fa-envelope"></i> coodepeasbl@gmail.com
+        </div>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Menu de navigation avec logo -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a class="navbar-brand logo" href="index.html"><img src="images/logo11.png" class="img-responsive" /></a>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html" class="active">ACCUEIL</a></li>
+                <li><a href="about-us.html">FAQ</a></li>
+                <li class="dropdown">
+                    <a href="activities.html">NOS SECTEURS</a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="afficherSection('conservation')">Conservation de la nature</a></li>
+                        <li><a href="#" onclick="afficherSection('nutrition')">Nutrition</a></li>
+                        <li><a href="#" onclick="afficherSection('protection')">Protection transversale</a></li>
+                        <li><a href="#" onclick="afficherSection('sante')">Santé</a></li>
+                    </ul>
+                </li>
+                <li><a href="projects.html">NOS REALISATIONS</a></li>
+                <li><a href="gallery.html">NOS PARTENAIRES</a></li>
+                <li><a href="contact.html">Contactez-nous</a></li>
+
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section pour afficher le contenu dynamique -->
+    <div id="contenu-dynamique" class="contenu-section">
+        <!-- Le contenu sélectionné sera affiché ici -->
+    </div>
+
+    <script>
+        function afficherSection(section) {
+            const contenuDynamique = document.getElementById('contenu-dynamique');
+            let htmlContent = '';
+
+            if (section === 'conservation') {
+                htmlContent = `
+                    <h2>Conservation de la nature</h2>
+                    <p>La pérennité environnementale aborde une programmation responsable qui répond aux besoins du présent sans compromettre la capacité des générations à venir de répondre à leurs propres besoins. Ignorer les problèmes environnementaux sur le court terme peut compromettre la récupération, empirer les problèmes existants ou en entraîner de nouveaux problèmes environnementaux.</p>
+                    <p>Pour pallier aux différents problèmes environnementaux menaçant l’écosystème, l’organisation COODEPE contribue efficacement par la sensibilisation communautaire pour la protection des espèces rares en danger ou en danger critique d’extinction (Faune et Flore). Pour la République Démocratique du Congo (RDC), parmi les espèces rares (totalement) protégées nous citons : Gorille, Chimpanzé, Éléphant, Zèbre, Rhinocéros, Girafe, Okapi, Oréotrague, Elan, Cobe, Grand Koudou, Impala, Chévrotain aquatique, Chat doré, Civette aquatique, Guépard, Caracal, Lamantin aquatique, Oryctérope, Pangolin géant, Crocodile, Tortue, Paon zaïrois, Bec en sabot, Cigogne, Fausse hirondelle à bec jaune, Messager serpentaire, Vautours (tous), Marabout, Caléa terrestre, Grue, Perroquet, Prionopsi à casque jaune, Pseudocalyptemena et Poisson aveugles de Mbanza-Ngungu, sans oublier aussi les espèces partiellement protégées.</p>
+                    <img src="images/Image1.png" alt="Conservation de la nature">
+                    <p>Hormis les espèces rares protégées, l’organisation COODEPE prône aussi pour les aires protégées tel que: les parcs nationaux, les réserves naturelles, les jardins botaniques, les domaines de chasse, les réserves forestières, les jardins zoologiques, les monuments naturels, les réserves de chasse, etc. Enregistrée au Secrétariat Général et au Ministère de l’Environnement et Développement Durable sous Certificat d’Enregistrement et sous Avis favorable, COODEPE intervient à travers la sensibilisation, la formation, l’appui technique pour protéger les espèces rares en faune (selon qu’il s’agit d’une espèce de faune totalement ou partiellement protégée en République Démocratique du Congo, conformément aux articles 14,72,78 et 79 de la loi n°14/003 du 11 février 2014 relative à la conservation de la nature. Tandis qu’en flore (pour prévenir la disparition d’espèces végétales menacées afin de permettre la conservation des biotopes correspondants). Les les eaux et les sites touristiques protégés en République Démocratique du Congo entre aussi en ligne de compte sur la liste des écosystèmes liée à la conservation de la nature que vise COODEPE.</p>
+                    <img src="images/Image2.png" alt="Conservation de la nature">
+                    <p>Dans le domaine de la conservation, l’organisation COODEPE sensibilise la population locale et ou communautaire à la conservation des écosystèmes, à la protection de la nature, à la lutte contre le feu de brousse et la déforestation et ou déboisement mais aussi à la formation des leaders locaux à la gestion participative pour la conservation des ressources.</p>
+                    <img src="images/Image3.png" alt="Conservation de la nature">
+
+                `;
+            } else if (section === 'nutrition') {
+                htmlContent = `
+                    <h2>Nutrition</h2>
+                    <p>COODEPE prône pour le droit de toute personne de ne pas souffrir de la faim et d’accéder à une alimentation appropriée.</p>
+                <p>
+					Comme missions assignées :
+				</p>
+				<p>
+					-	Mener des diverses évaluations (SMART, CAP, SQUEAC, etc) sur la nutrition et la sécurité alimentaire ;
+				</p>
+				
+				<p>	
+					-	Appuyer les structures sanitaires par la prise en charge intégrée des cas de malnutrition (PCI-MAM & PCI-MAS) ;
+				</p>
+				
+				<p>
+					-	Apporter de l’aide alimentaire aux bénéficiaires ;
+				</p>
+
+				<p>
+					-	Contribuer à la prise en charge de l’alimentation du jeune nourrisson tant en situation d’urgence (ANJ-U);
+				</p>
+				
+				<p>
+					-	Contribuer aux moyens d’existence des communautés.  	
+				</p>
+                    <img src="images/Image1N.jpg" alt="Event 2 Image">
+                    <img src="images/Image2N.jpg" alt="Event 2 Image">
+
+
+                `;
+            } else if (section === 'protection') {
+                htmlContent = `
+					<p>
+						Protéger, c’est sauver des vies !
+					</p>
+					
+					<p>
+						Mission assignée par COODEPE pour la protection de l’enfant (PE), protection contre les violences sexuelles (PVS), violences basées sur le genre (VBG), harcèlement sexuel (HS), protection contre l’exploitation abus sexuels (PSEA), droit au logement, terre et propriété (LTP), action contre les mines (LAM), assistance juridique, défense des droits de l’homme, protection des personnes déplacées à l’intérieur du territoire (PDI), droits des réfugiés et inclusion, c’est de :
+					</p>
+
+					<p>
+						Mission :
+					</p>
+					
+					<p>
+						-	Renforcer la sécurité, la dignité et les droits des personnes, et évi-ter de les exposer à des préjudices.
+					</p>
+
+					<p>
+						-	Aider les personnes à se remettre des effets physiques et psycho-logiques de menaces de violence ou de réels actes de violence, de coercition ou de privations délibérées.
+					</p>
+
+					<p>
+						-	Aider les personnes à faire valoir leurs droits
+					</p>
+
+					<p>
+						-	Prise en charge holistique des victimes survivantes de VBG, HS, VS et EAS.
+					</p>
+
+					<img src="images/Image1P.jpg">
+                `;
+            } else if (section === 'sante') {
+                htmlContent = `
+					<p>
+						Tout le monde a droit à des soins de santé adéquats et opportuns !
+					</p>
+					
+					<p>
+						Mission assignée par COODEPE :
+					</p>
+
+					<p>
+							Réhabiliter et appuyer les structures sanitaires ;  
+					</p>
+					
+					<p>
+							Promouvoir les soins de santé communautaire essentiels à travers :
+					</p>
+
+					<p>
+						1.	La santé infantile :
+					</p>
+
+					<p>
+						-	La lutte contre les maladies à prévention vaccinale ;
+					</p>
+
+					<p>
+						-	La prise en charge des maladies chez le nouveau-né et l’enfant.
+					</p>
+
+					<p>
+						2.	La santé sexuelle et reproductive :
+					</p>
+
+					<p>
+						-	Apports aux soins de santé reproductive de la mère et du nouveau-né
+					</p>
+
+					<p>
+						-	La lutte contre la Violence sexuelle et prise en charge clinique du viol
+					</p>
+
+					<p>
+						-	VIH
+					</p>
+
+					<p>
+						3.	Les soins des blessures et traumatisme :
+					</p>
+
+					<p>
+						-	Apports aux soins liés aux blessures et traumatismes. 
+					</p>
+
+					<img src="images/Image1s.jpg">
+					<img src="images/Image2s.jpg">
+					<img src="images/Image3s.jpg">
+                `;
+            }
+
+            contenuDynamique.innerHTML = htmlContent;
+        }
+    </script>
+
+
+
+
+
+
+<!-- Bas de page -->
+<footer>
+    <!-- À-PROPOS DE COODEPE ASBL -->
+    <div>
+        <h3>À-PROPOS DE COODEPE ASBL</h3>
+        <p>COODEPE – (Congo Organisation pour le Développement, l’Education et la Protection de l’Environnement), est une ONG de droits congolais à but non lucratif créée en avril 2016 et ayant son Siège National à Kinshasa.</p>
+    </div>
+
+    <!-- Liens rapides -->
+    <div>
+        <h3>Liens rapides</h3>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about-us.html">FAQ</a></li>
+            <li><a href="activities.html">Nos secteurs</a></li>
+            <li><a href="projects.html">Nos réalisations</a></li>
+            <li><a href="gallery.html">Nos partenaires</a></li>
+            <li><a href="#">Médias</a></li>
+            <li><a href="contact.html">Contactez-nous</a></li>
+        </ul>
+    </div>
+
+    <!-- Inscription à la Newsletter -->
+    <div class="newsletter">
+        <h3>Inscription à la Newsletter</h3>
+        <p>Sélectionnez votre newsletter, entrez votre adresse mail, et cliquez sur "Inscrire".</p>
+        <input type="email" placeholder="Entrez votre adresse email">
+        <button type="submit">Inscrire</button>
+    </div>
+
+    <!-- Contactez-nous -->
+    <div>
+        <h3>Contactez-nous</h3>
+        <p><strong>Adresse physique :</strong> Croisement des Chaussées Kasaï – Itaga, n° 9 Bis, Q/Tshimanga, C/Barumbu, Kinshasa/RDC</p>
+        <p><strong>Par Téléphone :</strong> +243847 272 230, +243812 780 214</p>
+        <p><strong>Par mail :</strong> <a href="mailto:coodepeasbl@gmail.com">coodepeasbl@gmail.com</a></p>
+    </div>
+</footer>
+</body>
+</html>
